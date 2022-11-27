@@ -1,29 +1,15 @@
-const closing = {
-    '(': ')',
-    '[': ']',
-    '{': '}',
-};
+const areBracketsBalanced = require('./areBracketsBalanced');
 
-/**
- * @param bracketsString string
- * @return boolean
- */
-function areBracketsBalanced(bracketsString) {
-    const size = bracketsString.length;
-    const opened = [];
+const [, , bracketString] = process.argv;
 
-    for (let c = 0; c < size; c++) {
-        let bracket = bracketsString[c];
-        if (closing[bracket]) {
-            opened.push(bracket);
-        } else if (opened.length === 0) {
-            return false;
-        } else if (closing[opened.pop()] !== bracket) {
-            return false;
-        }
-    }
-
-    return opened.length === 0;
+if (!bracketString) {
+    console.log(`
+    No string was found to be evaluated.
+    To execute the script to evaluate a brackets string, run "node src/main.js '<bracketString>'"
+    To see test cases, run "yarn test".
+    `);
+    process.exit(0);
 }
 
-module.exports = areBracketsBalanced;
+const isValid = areBracketsBalanced(bracketString);
+console.log(`The provided brackets string is ${isValid ? 'VALID' : 'INVALID'}`);

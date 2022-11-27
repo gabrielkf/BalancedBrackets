@@ -1,4 +1,4 @@
-const areBracketsBalanced = require('../src/main');
+const areBracketsBalanced = require('../src/areBracketsBalanced');
 
 const TEST_CASES = [
     { bracketString: '(){}[]', isValid: true },
