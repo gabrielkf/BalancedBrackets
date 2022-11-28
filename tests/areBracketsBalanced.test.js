@@ -5,6 +5,8 @@ const TEST_CASES = [
     { bracketString: '[{()}](){}', isValid: true },
     { bracketString: '[]{()', isValid: false },
     { bracketString: '[{)]', isValid: false },
+    { bracketString: '[()]{}{[()()]()}', isValid: true },
+    { bracketString: '[(])', isValid: false },
 ];
 
 describe('areBracketsBalanced function', () => {

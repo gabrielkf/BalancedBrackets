@@ -12,4 +12,4 @@ if (!bracketString) {
 }
 
 const isValid = areBracketsBalanced(bracketString);
-console.log(`The provided brackets string is ${isValid ? 'VALID' : 'INVALID'}`);
+console.log(`The provided brackets string is ${isValid ? 'BALANCED' : 'IMBALANCED'}`);
